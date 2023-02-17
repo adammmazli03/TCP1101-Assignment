@@ -71,22 +71,18 @@ void startGame()
     else if (mainMenu_option == "EXIT")
     {
         string exit;
-        cout << "Are you sure? (YES/NO)" << endl;
+        cout << "Are you sure? (y/n)" << endl;
         cin >> exit;
         cout << endl;
-        for (int j = 0; j < exit.length(); j++)
-        {
-            exit[j] = toupper(exit[j]);
-        }
 
-        if (exit == "YES")
+        if (exit == "y" || exit == "Y")
         {
             cout << endl;
             cout << "Thank You, see you next time!" << endl;
             system("pause");
         }
 
-        else if (exit == "NO")
+        else if (exit == "n" || exit == "N")
         {
             cout << endl;
             system("CLS");
