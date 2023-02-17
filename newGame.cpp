@@ -20,7 +20,6 @@ void newGame()
     fstream myFile2;
     fstream myFile3;
     string usr;
-    string usrtxt;
     string line;
     int x_axis;
     int y_axis;
@@ -55,16 +54,9 @@ void newGame()
         if (myFile2.is_open())
         {
             myFile2 << usrtxt << endl;
-            myFile3.open(usrtxt, ios::out);
-            {
-                changeSettings(x_axis, y_axis, zombie);
-                displayMainMenu(x_axis, y_axis, zombie);
-                myFile3 << " No of rows: " << x_axis << endl;
-                myFile3 << " No of colomn: " << y_axis << endl;
-                myFile3 << endl;
-                return;
-            }
         }
     }
     myFile2.close();
+    changeSettings(x_axis, y_axis, zombie);
+    displayMainMenu(x_axis, y_axis, zombie);
 }
