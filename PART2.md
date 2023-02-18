@@ -20,7 +20,7 @@
 3. Player can enter instructions many times if they mispell
 4. Coordinates for Alien and Zombies
 5. Game instructions 
-6. Game auto-save when player exit the game
+6. Game auto-save when player exit mid-game
 
 ## Contributions
 
