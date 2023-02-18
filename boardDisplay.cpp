@@ -24,12 +24,14 @@ void help()
 {
     cout << " | How to Play ? | " << endl
          << endl
-         << " 1. Coordinates for Alien, Zombies and Objects are read in rows then colomn " << endl
+         << " 1. Coordinates for Alien, Zombies and Objects are read in row then colomn " << endl
          << " 2. To change arrow's direction, input arrow in the command, state the coordinate of the arrow and the new arrow direction " << endl
          << " 3. This game is autosave when player exits " << endl
          << " 4. Alien must go to arrow in order to gain attack. Each arrow provides 20 attack " << endl
          << " 5. Health pack(h) provides Alien with 20 health " << endl
-         << " 6. Alien's movement stops when stumble upon big rock(r). Under the rock has random objects " << endl
+         << " 6. Pod Laser(p) provides Alien with 10 damage to nearby zombies " << endl
+         << " 7. Gun(g) provides Alien with 10 damage + Alien attack to a targeted zombie " << endl
+         << " 8. Alien's movement stops when stumble upon big rock(r). Under the rock has random objects " << endl
          << endl
          << endl
          << " | Movements & Objects | " << endl
@@ -37,6 +39,7 @@ void help()
          << " h      : Health pack." << endl
          << " r      : Big rock." << endl
          << " p      : Pod laser." << endl
+         << " g      : Gun." << endl
          << " <      : Arrow left." << endl
          << " >      : Arrow right." << endl
          << " ^      : Arrow up." << endl
@@ -339,6 +342,7 @@ void Board::encounterItem(string direction, int zombie)
         system("pause");
 
         map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+        system("CLS");
         display(zombie, characterTurn);
         movePlayer(direction, zombie);
     }
@@ -353,6 +357,7 @@ void Board::encounterItem(string direction, int zombie)
         cout << endl;
 
         map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+        system("CLS");
         display(zombie, characterTurn);
         movePlayer(direction, zombie);
     }
@@ -391,6 +396,7 @@ void Board::encounterItem(string direction, int zombie)
         }
         system("pause");
         map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+        system("CLS");
         display(zombie, characterTurn);
         movePlayer(direction, zombie);
     }
@@ -406,6 +412,7 @@ void Board::encounterItem(string direction, int zombie)
         cout << endl;
 
         map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+        system("CLS");
         display(zombie, characterTurn);
         direction = "right";
         movePlayer(direction, zombie);
@@ -422,6 +429,7 @@ void Board::encounterItem(string direction, int zombie)
         cout << endl;
 
         map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+        system("CLS");
         display(zombie, characterTurn);
         direction = "left";
         movePlayer(direction, zombie);
@@ -438,6 +446,7 @@ void Board::encounterItem(string direction, int zombie)
         cout << endl;
 
         map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+        system("CLS");
         display(zombie, characterTurn);
         direction = "up";
         movePlayer(direction, zombie);
@@ -454,6 +463,7 @@ void Board::encounterItem(string direction, int zombie)
         cout << endl;
 
         map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+        system("CLS");
         display(zombie, characterTurn);
         direction = "down";
         movePlayer(direction, zombie);
@@ -472,6 +482,7 @@ void Board::encounterItem(string direction, int zombie)
 
         if (hitZombie > zombie || hitZombie < 0 || z[hitZombie - 1].zombieHealth == 0)
         {
+            system("CLS");
             display(zombie, characterTurn);
             cout << " There is no zombie " << hitZombie << " in the board. " << endl
                  << " Alien loss chance to use the gun." << endl
@@ -480,6 +491,7 @@ void Board::encounterItem(string direction, int zombie)
         }
         else
         {
+            system("CLS");
             display(zombie, characterTurn);
             hitZombie -= 1;
             z[hitZombie].zombieHealth -= (alienStatus.getAttack() + 10);
@@ -499,6 +511,7 @@ void Board::encounterItem(string direction, int zombie)
             system("pause");
         }
         map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+        system("CLS");
         display(zombie, characterTurn);
         direction = "stop";
         movePlayer(direction, zombie);
@@ -541,6 +554,7 @@ void Board::encounterItem(string direction, int zombie)
             alienStatus.coorY++;
         }
         map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+        system("CLS");
         display(zombie, characterTurn);
         direction = "stop";
         movePlayer(direction, zombie);
@@ -555,6 +569,7 @@ void Board::encounterItem(string direction, int zombie)
         cout << endl;
 
         map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+        system("CLS");
         display(zombie, characterTurn);
         movePlayer(direction, zombie);
     }
@@ -584,6 +599,7 @@ void Board::encounterItem(string direction, int zombie)
                  << endl;
             system("pause");
             map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+            system("CLS");
             display(zombie, characterTurn);
             movePlayer(direction, zombie);
         }
@@ -613,6 +629,7 @@ void Board::encounterItem(string direction, int zombie)
                 alienStatus.coorY++;
             }
             map_[alienStatus.coorX][alienStatus.coorY] = " A ";
+            system("CLS");
             display(zombie, characterTurn);
             direction = "stop";
             movePlayer(direction, zombie);
@@ -656,6 +673,7 @@ void Board::movePlayer(string direction, int zombie)
                 }
             }
             alienStatus.resetAttack(0);
+            system("CLS");
             display(zombie, characterTurn);
             cout << " Alien turn ends. The trail is reset. " << endl
                  << endl;
@@ -695,6 +713,7 @@ void Board::movePlayer(string direction, int zombie)
                 }
             }
             alienStatus.resetAttack(0);
+            system("CLS");
             display(zombie, characterTurn);
             cout << " Alien turn ends. The trail is reset. " << endl
                  << endl;
@@ -734,6 +753,7 @@ void Board::movePlayer(string direction, int zombie)
                 }
             }
             alienStatus.resetAttack(0);
+            system("CLS");
             display(zombie, characterTurn);
             cout << " Alien turn ends. The trail is reset. " << endl
                  << endl;
@@ -772,6 +792,7 @@ void Board::movePlayer(string direction, int zombie)
                 }
             }
             alienStatus.resetAttack(0);
+            system("CLS");
             display(zombie, characterTurn);
             cout << " Alien turn ends. The trail is reset. " << endl
                  << endl;
@@ -795,6 +816,7 @@ void Board::movePlayer(string direction, int zombie)
             }
         }
         alienStatus.resetAttack(0);
+        system("CLS");
         display(zombie, characterTurn);
         cout << " Alien turn ends. The trail is reset. " << endl
              << endl;
@@ -809,11 +831,12 @@ void Board::moveZombies(int x_axis, int y_axis, int zombie)
         if (z[i].zombieHealth > 0)
         {
             characterTurn = i + 1;
+            system("CLS");
             display(zombie, characterTurn);
             cout << " Zombie " << i + 1 << " turns. " << endl;
             cout << endl;
             system("pause");
-
+            system("CLS");
             display(zombie, characterTurn);
 
             map_[z[i].zombieCoorX][z[i].zombieCoorY] = "   ";
@@ -938,6 +961,7 @@ void Board::moveZombies(int x_axis, int y_axis, int zombie)
             map_[z[i].zombieCoorX][z[i].zombieCoorY] = k;
 
             // Update the position of the zombie
+            system("CLS");
             display(zombie, characterTurn);
 
             int dx = z[i].zombieCoorX - alienStatus.coorX;
@@ -958,6 +982,7 @@ void Board::moveZombies(int x_axis, int y_axis, int zombie)
                 cout << endl;
                 system("pause");
             }
+            system("CLS");
             display(zombie, characterTurn);
             cout << " Zombie " << j << " turn ends. " << endl
                  << endl;
@@ -1030,6 +1055,7 @@ void Board::command(int x_axis, int y_axis, int zombie)
     else if (move == "arrow")
     {
         changeDirection(x_axis, y_axis);
+        system("CLS");
         display(zombie, characterTurn);
         command(x_axis, y_axis, zombie);
     }
@@ -1161,6 +1187,7 @@ void displayBoard(int x_axis, int y_axis, int zombie)
 
     while (board.getAlien().health > 0)
     {
+        system("CLS");
         board.display(zombie, board.characterTurn);
         board.command(x_axis, y_axis, zombie);
         if (board.winCheck(zombie) == 0)
