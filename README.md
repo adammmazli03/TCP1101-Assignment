@@ -9,7 +9,7 @@
 2. Open terminal
 3. Make sure the terminal is directed to the game folder
 4. Compile the "main.cpp" file by run the code "g++ main.cpp -o main.exe" in the terminal.
-5. Run ".\main"
+5. Run ".\main.exe"
 
 ## User Manual
 
