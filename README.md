@@ -1,7 +1,7 @@
 # Alien vs. Zombie
 
 [Video Demo for Part 1](https://youtu.be/TBZlNZmIsqg)\
-[Video Demo for Part 2](https://youtu.be/TBZlNZmIsqg)
+[Video Demo for Part 2](https://youtu.be/HtuC4ft0BM0)
 
 ## Compilation Instructions
 
