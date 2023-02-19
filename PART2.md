@@ -26,19 +26,22 @@
 
 ### MUHAMMAD ADAM BIN MAZLI ZAKUAN
 
-1. Create function for Main Menu
+1. Create funtion command, generateZombie, movePlayer, winCheck, alienDie, playAgain
 
 ### AHMAD NUR IKHWAN BIN HAMID
 
-1. Settings and Display the Game Board
+1. Create function movePlayer, moveZombies, encounterItem, changeDirection, generateObjects
 
 ### MUHAMMAD AL-AMIN BIN MOHD NORMARZUKI
 
-1. Function for save and load game
+1. Create struct myObj
+2. Create function initload, displayloadBoard, resetAlien
 
 ## Problems Encountered & Solutions
 
-1. "control reaches end of non-void function [-Wreturn-type]" error appear inside "newGame.cpp" and "loadGame.cpp" | remove 0 from "return 0;"
-2. While making the Usr.txt loop to find if the Username input is incorrect, I could not find a way to make the " line " only read one value. | I decided to put the line outside the while loop and Filename.open(). Thus, the value return to it is " "(blank), then I use the if(usrtxt != line) outside the FileName.open(). Then it will return the value true to if and initiate the FileName2.open() and Thus creating a new user if the username has already been taken.
-3. Input number less 0 and more 9 in number of zombies. | Create a do loop function to accept number 1<=x<=9.
-4. Number of rows board and columns board display is not equal to what user input in settings. | Swap the dimX* and dimY* in for a loop of the building board.
+1. Trouble with a lot of files. | Combine all files into one file.
+2. During load game, Amin encountered problem where the value cannot pass to the variable. | He extract file in string form and converted to integer to match to parameter of displayBoard.
+3. When Amin tried to take object from saved board in the saved file, he encounterd that the objects extracted was inclusive with separator ('|'). | He made a for loop and made a if-else statement which it only except everything except separator. Thus, converting from every object to char.
+4. When Amin was trying to extract the value of constructor (health, attack, range ,x_axis, y_axis), he couldn't extract the value like he wanted. | Amin changed how the saved game saves the file by ending the statement and putting it in a new row.Thus it makes it more easier to extract the constructor.
+5. When the zombie randomly moving, the zombie will move outside the board when at the corner of the board. | Ikhwan create vector int which will push_back the number of valid movement the zombie can go. So, zombie will get random number from the vector.
+6. When generate zombies' attribute, sometimes the zombie stacked with other zombies' coordinate or stacked with alien' coordinate. | Make bool for the valid coordinate to spawn the zombie.  
